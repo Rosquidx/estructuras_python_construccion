@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Examen parcial final</title>
+</head>
+<body>
+    <div class="header">
+        <h2>Estructura de datos en Python</h2>
+    </div>
+
+    <hr/>
+    <ul>
+        <li><a href="{% url 'tuplas' %}">Tuplas</a></li>
+        <li><a href="{% url 'dataclases' %}">DataClases</a></li>
+        <li><a href="{% url 'dictionaries' %}">Dictionaries</a></li>
+        <li><a href="{% url 'lists' %}">Lists</a></li>
+        <li><a href="{% url 'sets' %}">Sets</a></li>
+        <li><a href="{% url 'queues' %}">Queues</a></li>
+    </ul>
+</body>
+</html>

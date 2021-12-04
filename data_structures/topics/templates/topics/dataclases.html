@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
+    <title>Dataclases</title>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Dataclases</h2>
+    </div>
+
+    <hr />
+    <ul>
+      <li><a href="{% url 'index' %}">Regresar</a></li>
+    </ul>
+
+    <div class="contenedor">
+      <!-- <p>{{j}}</p>
+
+      {% if j.casado %}
+      <p>Es casado</p>
+      {% else %}
+      <p>NO está casado</p>
+      {% endif %}
+    </div> -->
+
+
+    {{c}}
+    </div>
+
+    <div class="contenedor">
+        {{j3}}
+    </div>
+
+    <div class="contenedor">
+        Nùmero de goles: {{j.obtener_goles}}
+    </div>
+
+    <div class="contenedor">
+       <strong>EMPLEADO</strong><br>
+       <p>{{empleado.mensajeEnviar}}</p>
+    </div>
+
+    <div class="contenedor">
+        <strong>EMPLEADO poca INFORMACIÓN</strong><br>
+        <p><strong>Nombre: </strong>{{empleado.nombre}}</p>
+        <p><strong>Compañia: </strong>{{empleado.compania}}</p>
+        <p><strong>Numero favorito: </strong>{{nfavorito}}</p>
+     </div>
+
+  </body>
+</html>

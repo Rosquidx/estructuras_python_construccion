@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
+    <title>Dicionario</title>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Dictionaries</h2>
+    </div>
+
+    <hr />
+    <ul>
+      <li><a href="{% url 'index' %}">Regresar</a></li>
+    </ul>
+
+    <br /><br />
+
+    <div class="contenedor">{{j1}}</div>
+
+    <div class="contenedor">{{j2}}</div>
+    <div class="contenedor">{{j3}}</div>
+
+    <div class="contenedor">{{j4}}</div>
+    <div class="contenedor">{{j5}}</div>
+
+    <div class="contenedor">
+      <ol>
+        {% for k,v in jugadores.items %}
+        <li class="li-dic">{{k}}: {{v}}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="contenedor">
+        <ol>
+          {% for v in jugadores.values %}
+            <li>{{v}} juega en {{v.0}}</li>
+          {% endfor %}
+        </ol>
+      </div>
+
+      <div class="contenedor">
+       <p>{{o.valor}}</p>
+      </div>
+
+      <div class="contenedor">
+        <ol>
+          {% for k,v in cosas.items %}
+            <li>La clave: {{k}} tiene el valor: {{v}}</li>
+          {% endfor %}
+        </ol>
+      </div>
+  </body>
+</html>

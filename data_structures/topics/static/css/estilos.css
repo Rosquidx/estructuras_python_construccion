@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap");
+
+body {
+  padding: 40px;
+  background-color: #21232a;
+  color: white;
+  font-family: "PT Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "PT Sans", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.header {
+  background-color: #581845;
+  height: 100%;
+  border-radius: 25px;
+  max-width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+li{
+    padding: 8px 16px;
+    background-color: #f1f1f1;
+    transition: 0.5s ease;
+}
+
+li a {
+  width: 100%;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+li:hover{
+    text-decoration: underline;
+    background-color: #581845;
+}
+
+a:hover{
+    color:white;    
+}
+
+.contenedor{
+  background-color: white;
+  border-radius: 10px;
+  width: 40%;
+  color: #000;
+  border: 1px solid #21232a;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: end;
+  font-size: 1.2em;
+}
+
+.li-dic {
+  text-decoration: none;
+  background-color:transparent;
+}
