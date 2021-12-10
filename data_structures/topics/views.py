@@ -1,6 +1,7 @@
+from __future__ import annotations
+from typing import List
 from django.shortcuts import render
 from .extras.tuplas import InformacionEstudiante, publicar, goles, Jugador
-
 from .extras.dataclases import JugadorDataClass, empleadoNutresa
 # Create your views here.
 
@@ -118,24 +119,21 @@ def cargar_dictionaries(request):
     jugadores['jugador1'] = ("Liga Alemana", 5, 10, 3.5, "Ferraro")
     jugadores['jugador6'] = ("Liga Colombiana", 8, 10, 6.5, "James"),
 
-
     class cualquierObjeto:
         def __init__(self, valor):
             self.valor = valor
 
     objecto1 = cualquierObjeto('hola')
 
-
     cosas = {}
     cosas['prenda'] = 'Traje rojo'
     cosas[3] = 'Numero 3'
     cosas[10.5] = 'Numero flotante'
-    cosas[('nombre',1200)] = 'tupla'
+    cosas[('nombre', 1200)] = 'tupla'
     cosas[objecto1] = 'Es un objecto'
     cosas[True] = 'Es un true'
     # cosas[[1,2,3]] = 'Es una lista'
     # No se puede utilizar listas porque son mutables y los otros no, las listas cambian y modifician.
-
 
     return render(
         request,
@@ -154,18 +152,99 @@ def cargar_dictionaries(request):
 
 
 def cargar_lists(request):
+
+    l1: list[str] = ['a', 'b', 'c', 'a']
+    l2: list[int] = [1, 2, 3, 595, 12]
+
+    l1.append('DHH')
+    l2.append(9944144)
+
+    l1.insert(len(l1), 'Perro')
+    l2.insert(0, 595522)
+    # l1.reverse()
+    l4 = l2
+
+    l3 =  ['o', 'p', 'z', 'a']
+    l3.reverse()
     return render(
         request,
         'topics/lists.html',
-        {}
+        {
+            'l1': l1,
+            'l2': l2,
+            'c1': l1.count('a'),
+            'c2': l2.count(12),
+            'posicionL1': l1.index('c'),
+            'posicionL2': l2.index(12),
+            'busqueda': (595 in l2),
+            'reverse': l3,
+        }
     )
 
 
 def cargar_sets(request):
+
+    songs_library = [
+        ('Hall Of Fame','The Script'),
+        ('Wrecked','Imagine Dragons'),
+        ('Alarm','Anne-Marie'),
+        ('Happier Than Ever','Billie Eilish'),
+        ('Infinity','Jaymes Young'),
+        ('You\'re Somebody Else','Flora cash'),
+        ('Blame', 'Martin Garrix'),
+        ('Someone You Loved', 'Lewis Capaldi'),
+        ('Something Just Like This', 'Coldplay'),
+        ('Meet Me At Our Spot', 'Willow Smith'),
+        ('When We Where Young', 'Adele'),
+        ('There\'s Nothing Holdin\' Me Back', 'Shawn Mendes'),
+        ('Without You', 'Avicci'),
+    ]
+
+    artistas = set()
+
+    for song,artist in songs_library:
+        artistas.add(artist)
+
+    busqueda = 'Shawn Mendes' in artistas
+
+    alphabetical = list(artistas)
+
+    alphabetical.sort()
+
+    Luisa = {
+        'Coldplay',
+        'Billie Eilish',
+        'Adele',
+        'Jaymes Young',
+    }
+
+    Julian = {
+        'Coldplay',
+        'Imagine Dragons',
+        'Avicci',
+        'Shawn Mendes',
+        'Jaymes Young',
+    }
+
+    operaciones = Luisa.union(Julian)
+    interce = Luisa.intersection(Julian)
+    diference =  Luisa.symmetric_difference(Julian)
+    quetienequenotengo = Luisa.difference(Julian)
+
+    
+
     return render(
         request,
         'topics/sets.html',
-        {}
+        {
+            'artistas': artistas,
+            'busqueda': busqueda,
+            'lOrdenada': alphabetical,
+            'operacion': operaciones,
+            'intersection': interce,
+            'diference': diference,
+            'quetienequenotengo': quetienequenotengo
+        }
     )
 
 
